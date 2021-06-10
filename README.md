@@ -25,22 +25,26 @@ Traditionally when you add a plugin in Unity that contains code all of that code
 This is done regardless of the actual file structure of the files on the disk.
 
 A plugin module that looked like the following
+```
 \ UnitySubmodule.Runtime
-&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptA.cs
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ Folder1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptB.cs
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ Folder2
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptC.cs
+  \ ScriptA.cs
+  \ Folder1
+    \ ScriptB.cs
+    \ Folder2
+      \ ScriptC.cs
+```
 
 Would appear as the following when in the consumer project's solution.
+```
 \ Parent Project
-&nbsp;&nbsp;&nbsp;&nbsp;\ Assets
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ Scripts
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ SomeScriptFile.cs
+  \ Assets
+    \ Scripts
+      \ SomeScriptFile.cs
 \ UnitySubmodule.Runtime
-&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptA.cs
-&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptB.cs
-&nbsp;&nbsp;&nbsp;&nbsp;\ ScriptC.cs
+  \ ScriptA.cs
+  \ ScriptB.cs
+  \ ScriptC.cs
+```
 
 In this template I have included an asset post processor in the editor module that aughments the VSTU project generation to add path information to each script that is included in the project.
 
