@@ -44,6 +44,6 @@ Would appear as the following when in the consumer project's solution.
 
 In this template I have included an asset post processor in the editor module that aughments the VSTU project generation to add path information to each script that is included in the project.
 
-You only need to include this file once so make sure to remove it from any subsequent projects if you have more than one plugin using this template.
+That script is located at Assets\Scripts\Editor\CodeGen\VSTUFolders.cs
 
-If you prefer the other method of script layout you can remove this file from any plugin you create from this template.
+You only need to include this file once so make sure to remove it from any subsequent projects if you have more than one plugin using this template. If you prefer the other method of script layout you can remove this file from any plugin you create from this template.
