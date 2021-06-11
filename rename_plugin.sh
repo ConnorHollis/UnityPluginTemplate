@@ -10,6 +10,7 @@ template_name="UnityPluginTemplate"
 
 runtime_asmdef_path="$scripts_path/Runtime/UnityPluginTemplate.Runtime.asmdef"
 editor_asmdef_path="$scripts_path/Editor/UnityPluginTemplate.Editor.asmdef"
+package_json_path="package.json"
 
 if [ -f "$runtime_asmdef_path" ]; then
 	echo "Replacing template name: $template_name with new plugin name: $plugin_name in $runtime_asmdef_path"
@@ -35,4 +36,11 @@ if [ -f "$editor_asmdef_path" ]; then
 	mv "$editor_asmdef_path.meta" "$scripts_path/Editor/$plugin_name.Editor.asmdef.meta"
 else
 	echo "Cannot find the editor asmdef at $editor_asmdef_path"
+fi
+
+if [ -f "$package_json_path" ]; then
+	echo "Replacing template name: $template_name with new plugin name: $plugin_name in $package_json_path"
+	sed -i "s/$template_name/$plugin_name/" $package_json_path
+else
+	echo "Cannot find the package json at $package_json_path"
 fi

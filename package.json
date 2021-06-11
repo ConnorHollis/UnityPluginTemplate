@@ -1,0 +1,27 @@
+{
+  "name": "com.plugin.UnityPluginTemplate",
+  "displayName": "UnityPluginTemplate",
+  "version": "0.0.1",
+  "unity": "2019.4",
+  "description": "Plugin from unity template. Update package.json with your plugin's information.",
+  "dependencies": {
+  },
+  "keywords": [
+  ],
+  "license": "",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  
+  "homepage": "",
+  "bugs": {
+    "url": "",
+    "email" : ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

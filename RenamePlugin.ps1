@@ -11,6 +11,7 @@ $template_name = "UnityPluginTemplate"
 
 $runtime_asmdef_path = "$scripts_path\Runtime\UnityPluginTemplate.Runtime.asmdef"
 $editor_asmdef_path = "$scripts_path\Editor\UnityPluginTemplate.Editor.asmdef"
+$package_json_path = ".\package.json"
 
 if(Test-Path -Path $runtime_asmdef_path -PathType Leaf)
 {
@@ -46,4 +47,16 @@ if(Test-Path -Path $editor_asmdef_path -PathType Leaf)
 else
 {
 	Write-Host "Cannot find the editor asmdef at $editor_asmdef_path"
+}
+
+if(Test-Path -Path $package_json_path -PathType Leaf)
+{
+	Write-Host "Replacing template name: $template_name with new plugin name: $plugin_name in $package_json_path"
+
+	$package_json_content = (Get-Content $package_json_path)
+	$package_json_content -replace $template_name, $plugin_name | Out-File -encoding UTF8 $package_json_path
+}
+else
+{
+	Write-Host "Cannot find the package json at $package_json_path"
 }
