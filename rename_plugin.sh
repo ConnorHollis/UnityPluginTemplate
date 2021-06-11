@@ -40,7 +40,9 @@ fi
 
 if [ -f "$package_json_path" ]; then
 	echo "Replacing template name: $template_name with new plugin name: $plugin_name in $package_json_path"
-	sed -i "s/$template_name/$plugin_name/" $package_json_path
+
+	lower_case_plugin_name="$(tr [A-Z] [a-z] <<< "$plugin_name")"
+	sed -i "s/$template_name/$lower_case_plugin_name/" $package_json_path
 else
 	echo "Cannot find the package json at $package_json_path"
 fi

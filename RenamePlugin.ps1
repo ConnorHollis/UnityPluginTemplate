@@ -53,8 +53,9 @@ if(Test-Path -Path $package_json_path -PathType Leaf)
 {
 	Write-Host "Replacing template name: $template_name with new plugin name: $plugin_name in $package_json_path"
 
-	$package_json_content = (Get-Content $package_json_path)
-	$package_json_content -replace $template_name, $plugin_name | Out-File -encoding UTF8 $package_json_path
+    (Get-Content -Path $package_json_path) |
+        ForEach-Object {$_ -Replace $template_name, $plugin_name.ToLower()} |
+            Set-Content -Path $package_json_path
 }
 else
 {
