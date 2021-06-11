@@ -51,7 +51,7 @@ public class ProjectFilePostprocessor : AssetPostprocessor
 
             if (match.Success)
             {
-                XAttribute linkAttribute = new XAttribute("LinkBase", match.Value.Substring(1));
+                XAttribute linkAttribute = new XAttribute("Link", match.Value.Substring(1));
                 el.Add(linkAttribute);
             }
         }
